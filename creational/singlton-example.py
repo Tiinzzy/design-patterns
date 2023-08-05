@@ -1,19 +1,19 @@
-class Singleton:
+class Counter:
     __instance = None
 
     def __init__(self):
         """ Virtually private constructor. """
-        if Singleton.__instance is not None:
+        if Counter.__instance is not None:
             raise Exception("This class is a singleton!")
         else:
             self.counter = 0
-            Singleton.__instance = self
+            Counter.__instance = self
 
     @staticmethod
     def get_instance():
-        if Singleton.__instance is None:
-            Singleton()
-        return Singleton.__instance
+        if Counter.__instance is None:
+            Counter()
+        return Counter.__instance
 
     def increment(self):
         self.counter += 1
@@ -26,7 +26,7 @@ class Singleton:
 
 
 if __name__ == "__main__":
-    s = Singleton.get_instance()
+    s = Counter.get_instance()
     print(s, s.get_value())
 
     s.increment()
@@ -34,5 +34,5 @@ if __name__ == "__main__":
     s.increment()
     print(s, s.get_value())
 
-    s = Singleton.get_instance()
+    s = Counter.get_instance()
     print(s, s.get_value())
