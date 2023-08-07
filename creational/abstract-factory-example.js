@@ -53,7 +53,6 @@ class BuildingFactory {
 
     static getShop() {
         return new Shop();
-
     }
 
     static getBuilding(typ) {
@@ -77,11 +76,9 @@ for (let i in userRequest) {
 }
 
 console.log('- - - - - - - -');
-
 let user_properties = [new Condo(), new Shop()];
 console.log(user_properties);
 
 console.log('- - - - - - - -');
-
 let newRequest = BuildingFactory.getHotel().get();
 console.log(newRequest);
