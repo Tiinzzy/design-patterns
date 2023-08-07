@@ -1,14 +1,17 @@
-class DoorNumber { }
-DoorNumber.UNDEFINED = -1
-DoorNumber.TWO = 0
-DoorNumber.FOUR = 1
+class DoorNumber {
+    static UNDEFINED = -1
+    static TWO = 0
+    static FOUR = 1
+}
 
 
-class RoomSize { }
-RoomSize.UNDEFINED = -1
-RoomSize.SMALL = 0
-RoomSize.MEDIUM = 1
-RoomSize.LARGE = 2
+class RoomSize {
+    static UNDEFINED = -1
+    static SMALL = 0
+    static MEDIUM = 1
+    static LARGE = 2
+}
+
 
 class Car {
     constructor() {
