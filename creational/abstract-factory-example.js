@@ -1,7 +1,6 @@
-function capitalizeFirstLetter(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
+let constructors = {};
 
+// ----------------------------------------------------------------------
 class Condo {
     building = "This is Condo";
 
@@ -9,8 +8,9 @@ class Condo {
         return this.building;
     }
 }
+constructors.Condo = Condo;
 
-
+// ----------------------------------------------------------------------
 class House {
     building = "This is House";
 
@@ -18,8 +18,9 @@ class House {
         return this.building;
     }
 }
+constructors.House = House;
 
-
+// ----------------------------------------------------------------------
 class Hotel {
     building = "This is Hotel";
 
@@ -27,8 +28,9 @@ class Hotel {
         return this.building;
     }
 }
+constructors.Hotel = Hotel;
 
-
+// ----------------------------------------------------------------------
 class Shop {
     building = "This is Shop";
 
@@ -36,7 +38,9 @@ class Shop {
         return this.building;
     }
 }
+constructors.Shop = Shop;
 
+// ----------------------------------------------------------------------
 class BuildingFactory {
     static getCondo() {
         return new Condo();
@@ -55,21 +59,16 @@ class BuildingFactory {
         return new Shop();
     }
 
-    static getBuilding(typ) {
-        if (capitalizeFirstLetter(typ) === "Condo") {
-            return new Condo();
-        } else if (capitalizeFirstLetter(typ) === "House") {
-            return new House();
-        } else if (capitalizeFirstLetter(typ) === "Hotel") {
-            return new Hotel();
-        } else if (capitalizeFirstLetter(typ) === "Shop") {
-            return new Shop();
+    static getBuilding(type) {
+        if (Object.keys(constructors).indexOf(type) === -1) {
+            throw new Error(`Our factory doesn't carry this type: ${type}!`);
         } else {
-            throw new Error(`Our factory doesn't carry this type: ${typ}!`)
+            return new constructors[type]();
         }
     }
 }
 
+// ----------------------------------------------------------------------
 const userRequest = ['Condo', 'Shop'];
 for (let i in userRequest) {
     console.log(BuildingFactory.getBuilding(userRequest[i]).get());
