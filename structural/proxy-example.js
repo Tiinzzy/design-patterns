@@ -14,7 +14,7 @@ class DatabaseConnection {
     runSelectQuery(query) {
         DatabaseConnection.#myConnector.connect(function (err) {
             if (err) throw err;
-            DatabaseConnection.#myConnector.query("SELECT * FROM customers", function (err, result, fields) {
+            DatabaseConnection.#myConnector.query(query, function (err, result, fields) {
                 if (err) throw err;
                 console.log(result);
                 return result;

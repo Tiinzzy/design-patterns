@@ -3,8 +3,8 @@ class DatabaseConnection {
 
     }
 
-    static runQuery() {
-        return '';
+    static runQuery(query) {
+        return 'RUNNING THIS QUERY => ' + query;
     }
 }
 
@@ -15,7 +15,7 @@ class UserInterface {
     }
 
     static getInputData() {
-        return '';
+        return 'INPUT DATA';
     }
 
     static show_result(result) {
@@ -26,20 +26,14 @@ class UserInterface {
 // ----------------------------------------------------------------------
 class Business{
     constructor() {
-
     }
 
     static doProcess(){
-        let ui = new UserInterface();
-        let db = new DatabaseConnection();
         let data = UserInterface.getInputData();
         let result = DatabaseConnection.runQuery(data);
         UserInterface.show_result(result);
     }
 }
 
-
 // ----------------------------------------------------------------------
-const business = new Business()
 Business.doProcess()
-
