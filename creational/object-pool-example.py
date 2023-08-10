@@ -9,12 +9,11 @@ class Worker:
         self.__name = name
         self.__busy = False
 
-    def execute(self, task):
+    def execute(self, task, delay):
         self.__busy = True
         t = time.localtime()
         current_time = time.strftime("%H:%M:%S", t)
-        delay = random.randint(1, 5)
-        print(f'{current_time}: {self.__name}: Executing {task} (delay={delay})')
+        print(f'\n\n{current_time}: {self.__name}: Executing {task} (delay={delay})')
         time.sleep(delay)
         self.__busy = False
 
@@ -45,7 +44,7 @@ class WorkerPool:
             for t in tasks_to_be_executed:
                 for w in self.__pool:
                     if not w.is_busy():
-                        thread = Thread(target=w.execute, args=(t,))
+                        thread = Thread(target=w.execute, args=(t, t))
                         thread.start()
                         to_be_deleted.append(t)
                         break
@@ -63,6 +62,9 @@ if __name__ == "__main__":
     wp.add('tina')
     wp.add('kiana')
     wp.add('avian')
+    wp.add('alice')
+    wp.add('bob')
 
-    all_tasks = [12, 332, 35, 65, 7, 73, 1, 6, 7, 8, 3, 6, 8]
+    all_tasks = [1, 3, 10, 2, 6, 7, 4, 5, 8, 9]
     wp.run_tasks(all_tasks)
+    print(f'total to be processed time: {sum(all_tasks)}')
