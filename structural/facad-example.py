@@ -3,8 +3,8 @@ class DatabaseConnection:
         pass
 
     @staticmethod
-    def run_query():
-        return ''
+    def run_query(query):
+        return f'QUERY PROCESSED => {query}'
 
 
 class UserInterface:
@@ -14,7 +14,7 @@ class UserInterface:
 
     @staticmethod
     def get_input_data():
-        return ''
+        return 'INPUT DATA'
 
     @staticmethod
     def show_result(result):
@@ -27,14 +27,11 @@ class Business:
         pass
 
     @staticmethod
-    def do_a_process(self):
-        ui = UserInterface()
-        db = DatabaseConnection()
-        data = ui.get_input_data()
-        result = db.run_query(data)
-        ui.show_result(result)
+    def do_a_process():
+        data = UserInterface.get_input_data()
+        result = DatabaseConnection.run_query(data)
+        UserInterface.show_result(result)
 
 
 if __name__ == "__main__":
-    business = Business()
-    business.do_a_process()
+    Business.do_a_process()
