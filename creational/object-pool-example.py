@@ -1,5 +1,4 @@
 import time
-import random
 from threading import Thread
 
 
@@ -39,7 +38,7 @@ class WorkerPool:
         for t in tasks:
             tasks_to_be_executed[t] = False
 
-        while True:
+        while len(tasks_to_be_executed) > 0:
             to_be_deleted = []
             for t in tasks_to_be_executed:
                 for w in self.__pool:
@@ -51,9 +50,6 @@ class WorkerPool:
                 break
             for t in to_be_deleted:
                 del tasks_to_be_executed[t]
-
-            if len(tasks_to_be_executed) == 0:
-                break
 
 
 if __name__ == "__main__":
