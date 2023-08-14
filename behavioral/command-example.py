@@ -56,9 +56,8 @@ if __name__ == "__main__":
 
     print('- ' * 30)
 
-    i1 = Invoker1()
-    i1.invoke(CmdBeat('kamran'), '10:10', 2)
-    i1.invoke(CmdKill('kamran'), '10:13')
+    Invoker1.invoke(CmdBeat('kamran'), '10:10', 2)
+    Invoker1.invoke(CmdKill('kamran'), '10:13')
 
     print('- ' * 30)
 
