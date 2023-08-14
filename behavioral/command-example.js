@@ -41,7 +41,6 @@ class Invoker1 {
     }
 }
 
-
 // ---------------------------------------------------------
 class Invoker2 {
     constructor() {
@@ -66,7 +65,6 @@ c.run('10:13');
 
 console.log('- - - - - - - - - - - - - - - -');
 
-let i1 = new Invoker1();
 Invoker1.invoke(new CmdBeat('kamran'), '10:10', 2);
 Invoker1.invoke(new CmdKill('kamran'), '10:13');
 
