@@ -80,13 +80,13 @@ function doSomethingWithTask(task) {
 }
 
 // ---------------------------------------------------------
-let tasks = new Tasks()
+let tasks = new Tasks();
 
 tasks.add('face cleaning');
 tasks.add('take a bath');
 tasks.add('have breakfast');
 
-tasks.show()
+tasks.show();
 
 console.log('- - - - - - - - - - - - - - - -');
 
